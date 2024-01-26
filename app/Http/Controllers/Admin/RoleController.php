@@ -23,29 +23,8 @@ class RoleController extends Controller
                     ->addColumn('actions', function(Role $role) use ($userr){
                         $btn = '';
                         if ($userr->can('role-edit')){
-                        $btn ='<a href="' . url("admin/role/edit/" . encrypt($role->id)) . '" class="btn btn-primary shadow btn-xs sharp mr-1"> <i class="mdi mdi-pencil-box"></i> </a>';}
-                        if ($userr->can('role-delete')){
-                        $btn=$btn.'<a class="btn btn-danger shadow btn-xs sharp" data-toggle="modal" " data-target="#model_' . $role->id . '"><i class="mdi mdi-delete text-white"></i></a>
-                        <div class="modal fade" id="model_' . $role->id . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Delete Employee</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-
-                                </div>
-                                <div class="modal-body">
-                                    <p>Are you sure ? You want to delete the role. </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-primary" type="button" data-dismiss="modal">Close</button>
-                                    <button class="btn btn-danger "><a href="' . url("admin/permission/".encrypt($role->id)).'" style="color:white;">Delete Employee</i></a></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>';}
+                        $btn ='<a href="' . url("admin/role/edit/" . encrypt($role->id)) . '" class="btn btn-primary shadow btn-xs sharp mr-1"> <i class="mdi mdi-pencil-box"></i> </a>';
+                    }
                         return $btn;
                     })
                     ->rawColumns(['actions'])
