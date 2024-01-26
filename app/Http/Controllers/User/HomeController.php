@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
 use App\Models\Employee;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
@@ -12,7 +13,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $disable_dates = ['2024-01-28'];
+        $disable_dates = Booking::pluck('booking_date');
         $employees = Employee::all();
         $start_time = Carbon::createFromTime(0, 0, 0); // Start time, adjust as needed
         $end_time = Carbon::createFromTime(23, 0, 0);  // End time, adjust as needed

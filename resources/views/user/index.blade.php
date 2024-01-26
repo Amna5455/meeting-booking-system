@@ -71,7 +71,7 @@
 @endsection
 @section('js')
     <script>
-        var disable_dates = {!! json_encode($disable_dates) !!};
+        var disable_dates = {!! $disable_dates !!};
         var currentDate = new Date();
         
         
