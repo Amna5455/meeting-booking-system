@@ -15,6 +15,7 @@ class PermissionSeeder extends Seeder
     {
         $permissions = [
 
+            'admin-dashboard',
             'permission-create',
             'permission-delete',
             'permission-edit',

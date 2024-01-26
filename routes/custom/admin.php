@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard.index');
+Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard.index')->middleware(['permission:admin-dashboard']);
     Route::prefix('permission')->group(function () {
         Route::get('/', [PermissionController::class,'index'])->name('permission.index')->middleware(['permission:permission-list']);
         Route::get('/create', [PermissionController::class,'create'])->name('permission.create')->middleware(['permission:permission-create']);
