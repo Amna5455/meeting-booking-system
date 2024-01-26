@@ -25,6 +25,7 @@ class RoleSeeder extends Seeder
             'meeting-calendar-delete',
             'meeting-calendar-list',
             'meeting-calendar-create',
+            'admin-dashboard'
         ];
 
         $user = User::find(1);

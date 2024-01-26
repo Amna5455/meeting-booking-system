@@ -25,7 +25,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <select class="wide " name="time" style="overflow-y: scroll;min-width:200px">
-                                        <option data-display="Time">Time</option>
+                                        <option value="" data-display="Time">Time</option>
                                         @foreach ($time_array as $time)
                                         <option value="{{$time}}">{{$time}}</option>
                                         @endforeach
@@ -38,7 +38,7 @@
                         <div class="book_tabel_item">
                             <div class="input-group">
                                 <select class="wide" name="employee">
-                                    <option data-display="Employee">Employee</option>
+                                    <option value="" data-display="Employee">Employee</option>
                                     @foreach($employees as $employee)
                                         <option value="{{ $employee->id }}">{{ $employee->user->first_name.' '.$employee->user->last_name }}</option>
                                     @endforeach
@@ -71,17 +71,17 @@
 @endsection
 @section('js')
     <script>
-        var disable_dates = {!! $disable_dates !!};
+        //var disable_dates = {!! $disable_dates !!};
         var currentDate = new Date();
         
         
         $('#booking_date').datepicker({
             minDate: currentDate,
             dateFormat: 'yy-mm-dd',
-            beforeShowDay: function(date) {
+            {{--  beforeShowDay: function(date) {
                 var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
                 return [disable_dates.indexOf(string) == -1];
-            },
+            },  --}}
         });
     </script>
 @endsection
